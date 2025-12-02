@@ -29,8 +29,8 @@ let minScrollHeight;
 let loc = window.location.pathname;
 console.log(loc)
 
-if (loc.contains("/html/modelli.html") ||
-    loc.contains("/html/modelli_focus.html")) {
+if (loc.includes("/html/modelli.html") ||
+    loc.includes("/html/modelli_focus.html")) {
   minScrollHeight = title.scrollHeight * 2;
 } else {
   minScrollHeight = title.scrollHeight;
