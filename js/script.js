@@ -24,6 +24,8 @@ window.addEventListener("click", function (e) {
 // --------------------------------------------
 
 let title = document.querySelector("#Title-Container");
+let main = document.querySelector("#Main");
+let footer = document.querySelector("#Footer");
 let scrollTimeout;
 let minScrollHeight;
 let loc = window.location.href;
@@ -33,19 +35,29 @@ if (
     loc.includes("/html/modelli_focus.html")
 ) {
     minScrollHeight = title.scrollHeight * 2.5;
+    console.log(minScrollHeight);
 } else {
     minScrollHeight = title.scrollHeight;
+    console.log(minScrollHeight);
 }
 
 const fixTitle = () => {
     if (window.scrollY < minScrollHeight) {
         clearTimeout(scrollTimeout);
         title.classList.remove("start-scroll");
+        if (main && footer) {
+            main.classList.remove("scroll-start");
+            footer.classList.remove("scroll-start");
+        }
         title.style.opacity = 1;
         title.style.pointerEvents = "auto";
         return;
     }
     title.classList.add("start-scroll");
+    if (main && footer) {
+        main.classList.add("scroll-start");
+        footer.classList.add("scroll-start");
+    }
     title.style.opacity = 1;
     title.style.pointerEvents = "auto";
 
@@ -60,3 +72,17 @@ const fixTitle = () => {
 };
 
 window.addEventListener("scroll", fixTitle);
+
+// Prenota Test Drive
+document.addEventListener("DOMContentLoaded", () => {
+    let prenotaBtn = document.querySelector("#Prenota-Test-Drive");
+    if (prenotaBtn) {
+        prenotaBtn.addEventListener("click", () => {
+            if (loc.includes("index.html")) {
+                window.location.href = "./html/prenota.html";
+            } else {
+                window.location.href = "./prenota.html";
+            }
+        });
+    }
+});

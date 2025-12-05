@@ -36,7 +36,7 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-around;
     transition:
         opacity 0.3s ease,
-        transform 0.3s ease;
+        transform 0.2s ease;
 }
 #Title-Container.start-scroll {
     top: -50px;
@@ -127,9 +127,48 @@ nav ul a.underline {
     text-decoration: underline;
 }
 
+/* Bread crumbs*/
+.breadcrumb {
+    background: rgba(0, 0, 0, 0.04);
+    padding: 10px 18px;
+    border-radius: 8px;
+}
+.breadcrumb a {
+    color: #3e9bff;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.breadcrumb a:hover {
+    color: #0d6efd;
+}
+
+.breadcrumb .active {
+    color: #e0e0e0;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    color: #ffffff1d;
+}
+
 main {
     width: 100%;
     height: 100%;
+}
+
+/* Bike cards */
+.card-body {
+    padding: 20px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list-group-item {
+    padding: 20px, 10px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Footer */
@@ -149,6 +188,11 @@ footer a {
 }
 .footer-links:hover {
     color: #3e9bff;
+}
+
+.footer-links.link-active {
+    color: #3e9bff;
+    text-decoration: underline;
 }
 
 #Footer-Links {
@@ -173,29 +217,6 @@ footer a {
     margin-top: 20px;
     font-size: 14px;
     opacity: 0.8;
-}
-
-/* modelli / modelli-focus*/
-.breadcrumb {
-    background: rgba(0, 0, 0, 0.04);
-    padding: 10px 18px;
-    border-radius: 8px;
-}
-.breadcrumb a {
-    color: #3e9bff;
-    text-decoration: none;
-    transition: 0.2s ease;
-}
-
-.breadcrumb a:hover {
-    color: #0d6efd;
-}
-
-.breadcrumb .active {
-    color: #e0e0e0;
-}
-.breadcrumb-item + .breadcrumb-item::before {
-    color: #ffffff1d;
 }
 
 /* colors */
@@ -229,15 +250,22 @@ body {
     border-color: #e10600;
 }
 .btn-primary:hover {
-    background-color: #ff2a2a; /* lighter red on hover */
+    background-color: #ff2a2a;
+    border-color: #ff2a2a;
+}
+.btn-primary:active:focus {
+    background-color: #a30c0c;
+    border-color: #a30c0c;
+    box-shadow: none;
 }
 
 /* Links */
 a {
     color: #3e9bff;
 }
+
 a:hover {
-    color: #00ff6a; /* neon green on hover */
+    color: #00ff6a;
 }
 
 /* Footer */

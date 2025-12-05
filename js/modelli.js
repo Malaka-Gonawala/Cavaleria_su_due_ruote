@@ -108,6 +108,7 @@ function loadBikes(c) {
             </ul>
             <div class="card-body">
                 <a href="./modelli_focus.html?id=${bi.id}" class="card-link">Vedi Dettagli</a>
+                <a href="./prenota.html?id=${bi.id}" class="card-link">Prenota test drive</a>
             </div>
         `;
 

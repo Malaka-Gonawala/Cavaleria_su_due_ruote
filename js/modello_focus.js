@@ -17,7 +17,6 @@ const params = new URLSearchParams(window.location.search);
 const id = parseInt(params.get("id"));
 
 const bike = findProductById(id);
-console.log(bike);
 const container = document.querySelector(".bike-podium");
 let breadCrumbActive = document.querySelector(".active");
 
@@ -40,6 +39,7 @@ if (bike) {
             </ul>
             <div class="card-body">
                 <a href="./modelli.html" class="card-link">Torna A Modelli</a>
+                <a href="./prenota.html?id=${bike.id}" class="card-link">Prenota test drive</a>
             </div>
         `;
 
