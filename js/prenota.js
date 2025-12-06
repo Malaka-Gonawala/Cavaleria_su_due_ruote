@@ -1,30 +1,30 @@
+const formContainer = document.querySelector("#Form-Container");
 const form = document.querySelector("#Form");
+const inputs = form.querySelectorAll("input, select");
 const nameInput = document.querySelector("#nameInput");
-const email = document.querySelector("#emailInput");
 const tel = document.querySelector("#phoneInput");
 const select = document.querySelector("#bikeSelect");
+const choose = document.querySelector("#Choose");
 const dateInput = document.querySelector("#dateInput");
 const timeInput = document.querySelector("#timeInput");
 
+const date = new Date();
+
+const dayToday = String(date.getDay()).padStart(2, "0");
+const monthToday = String(date.getMonth() + 1).padStart(2, "0");
+const yearToday = String(date.getFullYear());
+const today = `${yearToday}-${monthToday}-${dayToday}`;
+
+const startTime = "09:00";
+const endTime = "21:00";
 (() => {
     "use strict";
 
     // Bootstrap validation setup
-    const inputs = form.querySelectorAll("input, select");
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         form.classList.add("was-validated");
-        if (form.checkValidity) {
-            alert(
-                nameInput.value,
-                email.value,
-                tel.value,
-                select.value,
-                dateInput.value,
-                timeInput.value
-            );
-        }
     });
 
     form.addEventListener("reset", () => {
@@ -51,7 +51,6 @@ const timeInput = document.querySelector("#timeInput");
     });
 
     // Fill bike select
-    const choose = document.querySelector("#Choose");
     const params = new URLSearchParams(window.location.search);
     const id = parseInt(params.get("id"));
 
@@ -108,3 +107,45 @@ const timeInput = document.querySelector("#timeInput");
     fillSelect();
     if (!selectedBike) choose.selected = true;
 })();
+
+form.addEventListener("submit", () => {
+    if (
+        nameInput.value !== "" &&
+        tel.value !== "" &&
+        select.value !== choose.value &&
+        dateInput.value >= today &&
+        timeInput.value >= startTime &&
+        timeInput.value < endTime
+    ) {
+        const nameFormatted =
+            nameInput.value.charAt(0).toUpperCase() +
+            nameInput.value.slice(1).toLowerCase();
+
+        for (const account in accounts) {
+            const ac = accounts[account];
+            if (nameFormatted === ac.name) {
+                formContainer.innerHTML = "";
+                form.classList.remove("was-validated");
+                inputs.forEach((input) =>
+                    input.classList.remove("is-valid", "is-invalid")
+                );
+
+                formContainer.style.height = "50vh";
+                formContainer.innerHTML = `<div class="success">
+                                            <h2>Prenotazione effettuata!</h2>
+                                            <p>Grazie per la tua richiesta ${nameFormatted}. Ti contatteremo presto.</p>
+                                            <a href='prenota.html'>Effettua un’altra prenotazione</a>
+                                           </div>`;
+
+                nameInput.value = "";
+                tel.value = "";
+                select.value = "";
+                dateInput.value = "";
+                timeInput.value = "";
+            } else {
+                console.log("Sign up");
+                continue;
+            }
+        }
+    }
+});

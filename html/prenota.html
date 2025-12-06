@@ -107,7 +107,7 @@
 
         <!-- Main -->
         <main id="Main">
-            <section id="Form">
+            <section id="Form-Container">
                 <h2>Prenota il tuo test drive ora!</h2>
                 <br />
                 <form class="row g-3 needs-validation" id="Form" novalidate>
@@ -116,27 +116,11 @@
                             type="text"
                             class="form-control"
                             id="nameInput"
-                            placeholder="Nome Cognome"
+                            placeholder="Nome"
                             required
                         />
-                        <label for="nameInput">Nome Cognome</label>
-                        <div class="invalid-feedback">
-                            Inserisci nome cognome
-                        </div>
-                    </div>
-
-                    <div class="form-floating mb-3">
-                        <input
-                            type="email"
-                            class="form-control"
-                            id="emailInput"
-                            placeholder="nome.cognome@example.com"
-                            required
-                        />
-                        <label for="emailInput">Indirizzo Email</label>
-                        <div class="invalid-feedback">
-                            Inserisci l'indirizzo email
-                        </div>
+                        <label for="nameInput">Nome</label>
+                        <div class="invalid-feedback">Inserisci nome</div>
                     </div>
 
                     <div class="form-floating mb-3">
@@ -154,9 +138,6 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="bikeSelect" class="form-label"
-                            >Scegli moto</label
-                        >
                         <select
                             class="form-select select"
                             id="bikeSelect"
@@ -256,6 +237,7 @@
         </footer>
 
         <!-- JavaScript -->
+        <script src="../js/accounts.js"></script>
         <script src="../js/moto_oggetto.js"></script>
         <script src="../js/script.js"></script>
         <script src="../js/prenota.js"></script>

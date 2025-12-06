@@ -38,7 +38,6 @@ if (
     console.log(minScrollHeight);
 } else {
     minScrollHeight = title.scrollHeight;
-    console.log(minScrollHeight);
 }
 
 const fixTitle = () => {
